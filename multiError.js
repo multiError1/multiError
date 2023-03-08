@@ -4,15 +4,16 @@
  */
 
 /**
- * @param {MultiErrorObj} x
- * @param {MultiErrorObj} y
+ * @param {number[]} x
+ * @param {number[]} y
  * return {boolean}
  */
-export function isXBetterThanY(x, y) {
-  const len = x.errors.length;
-  assert(len === y.errors.length);
+export function isMultiErrorXBetterThanY(x, y) {
+  assert(x != null);
+  const len = x.length;
+  assert(len === y.length);
   for (let i = 0; i < len; i++) {
-    const diff = x.errors[i] - y.errors[i];
+    const diff = x[i] - y[i];
     if (diff !== 0) {
       return diff < 0;
     }
